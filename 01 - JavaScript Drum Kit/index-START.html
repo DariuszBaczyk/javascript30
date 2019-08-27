@@ -61,12 +61,23 @@
 document.addEventListener('keydown', (event) => {
 
   const keyValue = event.which;
-  const keyAudio = document.querySelector(`audio[aria-key="${keyValue}"]`);
+  const keyAudio = document.querySelector(`audio[data-key="${keyValue}"]`);
+  const keyDrum = document.querySelector(`div[data-key="${keyValue}"]`);
 
   console.log(keyValue);
   console.log(keyAudio);
   keyAudio.play();
+  keyDrum.classList.add("sound");
+  keyDrum.classList.add("playing");
+
+  document.addEventListener('keyup', (event) => {
+
+    keyDrum.classList.remove("sound");
+    keyDrum.classList.remove("playing");
+  });
 });
+
+
 
 </script>
 
