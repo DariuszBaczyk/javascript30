@@ -66,13 +66,12 @@ document.addEventListener('keydown', (event) => {
 
   console.log(keyValue);
   console.log(keyAudio);
+
+  keyAudio.currentTime = 0;
   keyAudio.play();
-  keyDrum.classList.add("sound");
   keyDrum.classList.add("playing");
 
   document.addEventListener('keyup', (event) => {
-
-    keyDrum.classList.remove("sound");
     keyDrum.classList.remove("playing");
   });
 });
