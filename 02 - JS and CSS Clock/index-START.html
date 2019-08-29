@@ -62,11 +62,48 @@
       background: black;
       position: absolute;
       top: 50%;
+      transform-origin: 100%;
+      transform: rotate(90deg);
+      transition: 0.5s;
+      transition-timing-function: ease-in-out;
+    }
+
+    .hour-hand {
+      width: 35%;
+      height: 8px;
+      right: 50%;
+    }
+
+    .second-hand {
+      background: red;
     }
 
   </style>
 
   <script>
+
+    function clock() {
+      let aktualDate = new Date();
+      let hours = (aktualDate.getHours() % 12) * 30 + 90;
+      let minutes = aktualDate.getMinutes() * 360 / 60 + 90;
+      let seconds = aktualDate.getSeconds() * 360 / 60 + 90;
+
+      console.log(aktualDate.getHours());
+      console.log(aktualDate.getMinutes());
+      console.log(aktualDate.getSeconds());
+
+      console.log(hours);
+      console.log(minutes);
+      console.log(seconds);
+
+      let hoursHand = document.querySelector("div.hour-hand").style.transform = `rotate(${hours}deg)`;
+      let minutesHand = document.querySelector("div.min-hand").style.transform = `rotate(${minutes}deg)`;
+      let secondsHand = document.querySelector("div.second-hand").style.transform = `rotate(${seconds}deg)`;
+
+      
+    }
+    
+    setInterval(clock, 1000);
 
 
   </script>
