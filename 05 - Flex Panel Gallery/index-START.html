@@ -24,6 +24,7 @@
     }
 
     .panels {
+      display: flex;
       min-height: 100vh;
       overflow: hidden;
     }
@@ -43,6 +44,10 @@
       font-size: 20px;
       background-size: cover;
       background-position: center;
+      flex: 1;
+      display: flex;
+      justify-content: space-around;
+      flex-direction: column;
     }
 
     .panel1 { background-image:url(https://source.unsplash.com/gYl-UtwNg_I/1500x1500); }
@@ -56,6 +61,10 @@
       margin: 0;
       width: 100%;
       transition: transform 0.5s;
+      display: flex;
+      flex: 1 0 auto;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .panel p {
@@ -69,9 +78,24 @@
       font-size: 4em;
     }
 
+    .panel > *:first-child {
+      transform: translateY(-100%);
+    }
+    .panel.open > *:first-child {
+      transform: translateY(0);
+    }
+    .panel > *:last-child {
+      transform: translateY(100%);
+    }
+    .panel.open > *:last-child {
+      transform: translateY(0);
+    }
+
     .panel.open {
       font-size: 40px;
+      flex: 5;
     }
+
 
   </style>
 
@@ -105,7 +129,13 @@
   </div>
 
   <script>
+    const panels = document.querySelectorAll('.panel');
 
+    function toggleOpen() {
+      this.classList.toggle('open');
+    }
+
+    panels.forEach(panel => panel.addEventListener('click', toggleOpen));
   </script>
 
 
