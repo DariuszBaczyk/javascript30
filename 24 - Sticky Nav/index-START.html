@@ -54,6 +54,21 @@
   </div>
 
 <script>
+  const nav = document.querySelector('nav');
+  const sticky = nav.offsetTop;
+  const navHeight = nav.offsetHeight;
+
+  function makeSticky() {
+    if(window.pageYOffset >= sticky) {
+      document.body.style.paddingTop = `${navHeight}px`;
+      nav.classList.add('sticky')
+      } else {
+      document.body.style.paddingTop = 0;
+      nav.classList.remove('sticky')}; 
+  }
+
+  window.addEventListener('scroll', makeSticky);
+
 
 </script>
 
