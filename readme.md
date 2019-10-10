@@ -2,7 +2,9 @@
 
 You can find my solution in index-Start.html files.
 
-I didn't use Finish files.  
+I try don't use Finish files.  
+
+Every task is on separated branch. If commin have comment "done" I do this by myself.
 
 # JavaScript30
 
